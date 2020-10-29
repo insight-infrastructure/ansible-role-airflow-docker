@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "modules/robinhood/airflow-prometheus-exporter": "https://github.com/robinhood/airflow-prometheus-exporter"
+  }
+}
