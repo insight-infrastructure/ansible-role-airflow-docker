@@ -2,7 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/files/dags" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/airflow-docker-compose" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/modules/robinhood/airflow-prometheus-exporter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/stefanprodan/dockprom" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/terraform-aws-airflow-docker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/terraform-aws-airflow-docker/examples/defaults/.terraform/modules/defaults.ami" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/terraform-aws-airflow-docker/examples/defaults/.terraform/modules/defaults.ansible" vcs="Git" />
   </component>
 </project>

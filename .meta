@@ -1,5 +1,6 @@
 {
   "projects": {
-    "modules/robinhood/airflow-prometheus-exporter": "https://github.com/robinhood/airflow-prometheus-exporter"
+    "modules/robinhood/airflow-prometheus-exporter": "https://github.com/robinhood/airflow-prometheus-exporter",
+    "modules/stefanprodan/dockprom": "https://github.com/stefanprodan/dockprom"
   }
 }
