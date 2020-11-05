@@ -1,0 +1,54 @@
+#---
+#
+#- name: Copy over the config file
+#  template:
+#    src: config.j2
+#    dest: "/home/{{ username }}/airflow/config"
+#    mode: '0644'
+#    owner: "{{ username }}"
+#    group: "{{ group_name }}"
+#  when:
+#    - alertmanager_enabled
+#    - alertmanager_config_path == ""
+#
+#- name: Copy over the config file custom location
+#  template:
+#    src: "{{ alertmanager_config_path }}"
+#    dest: "/home/{{ username }}/airflow/config"
+#    mode: '0644'
+#    owner: "{{ username }}"
+#    group: "{{ group_name }}"
+#  when:
+#    - alertmanager_enabled
+#    - alertmanager_config_path != ""
+#
+#- name: Copy over the alert rules file
+#  template:
+#    src: alertmanager_alert_rules_config_path
+#    dest: "/home/{{ username }}/airflow/prometheus/alert_rules" # no yml
+#    mode: '0644'
+#    owner: "{{ username }}"
+#    group: "{{ group_name }}"
+#  when:
+#    - alertmanager_enabled
+#    - alertmanager_alert_rules_config_path != ""
+#
+#- name: Copy over the prometheus config file
+#  template:
+#    src: prometheus.yml
+#    dest: "/home/{{ username }}/airflow/prometheus/prometheus.yml"
+#    mode: '0644'
+#    owner: "{{ username }}"
+#    group: "{{ group_name }}"
+#  when:
+#    - alertmanager_enabled
+#    - alertmanager_alert_rules_config_path != ""
+#
+#- name: Copy over the alertmanager config file
+#  template:
+#    src: alertmanager_config.yml
+#    dest: "/home/{{ username }}/airflow/alertmanager/config.yml"
+#    mode: '0644'
+#    owner: "{{ username }}"
+#    group: "{{ group_name }}"
+#
