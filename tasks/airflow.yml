@@ -22,40 +22,26 @@
 
 - name: Move cert to certs
   command: cp /etc/letsencrypt/live/{{ fqdn }}/fullchain.pem /home/{{ username }}/airflow/certs/fullchain.pem
+  when: ssl_enable
 
 - name: Move key to certs
   command: cp /etc/letsencrypt/live/{{ fqdn }}/privkey.pem /home/{{ username }}/airflow/certs/privkey.pem
+  when: ssl_enable
 
 - name: Rename override file per the type of airflow deployment (ie worker)
   command: mv /home/{{ username }}/airflow/docker-compose.worker.override /home/{{ username }}/airflow/docker-compose.override
   when: airflow_node_type == 'worker'
 
+- name: Render env file
+  template:
+    src: "{{ env_file_path }}"
+    dest: "/home/{{ admin_user }}/airflow/.env"
+    mode: '0644'
+    owner: "{{ username }}"
+    group: "{{ group_name }}"
+  when: env_file_path != ""
+
 - name: Start node application via docker-compose
   shell:
     cmd: docker-compose up -d
     chdir: "/home/{{ username }}/airflow"
-
-- name: Render env file
-  template:
-    src: "{{ role_path }}/templates/.env.j2"
-    dest: /home/{{ admin_user }}/.env
-    mode: '0644'
-    owner: "{{ admin_user }}"
-    group: "{{ admin_group }}"
-  tags: update-configs
-
-
-# TODO: systemd?
-#- name: Copy service
-#  template:
-#    src: airflow.service.j2
-#    dest: /etc/systemd/system/airflow.service
-#    owner: root
-#    group: root
-#    mode: 0600
-#
-#- name: Enable and start service
-#  systemd:
-#    name: airflow
-#    enabled: yes
-#    state: started

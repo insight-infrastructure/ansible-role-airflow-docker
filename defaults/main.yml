@@ -7,18 +7,19 @@ group_name: ubuntu
 
 airflow_node_type: main
 
-prometheus_enable: true
-ssl_enable: true
+prometheus_enable: false
+ssl_enable: false
 
 install_docker: true
+
+env_file_path: ""
 
 gf_security_admin_user: admin
 gf_security_admin_password: changemenow
 gf_users_allow_sign_up: false
 
-
 alertmanager_enabled: false
 alertmanager_slack_channel: my-airflow-alert-channel
 alertmanager_slack_api_key: gobbledegook
-alertmanager_config_path:
+alertmanager_config_path: ""
 alertmanager_alert_rules_config_path:
